@@ -6,7 +6,9 @@ RUN pip install django==3.2
 
 COPY . .
 
-RUN python manage.py migrate
+# set environment variables to avoid django warnings
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 EXPOSE 8000
 
